@@ -1,0 +1,31 @@
+{
+    "name": "maxnuf/maxnuf-smarty",
+    "description": "Zend Framework 2 Module that provides a Smarty rendering strategy and functions and modifiers to render actions from your templates",
+    "type": "library",
+    "keywords": [
+        "smarty",
+        "module",
+        "zf2"
+    ],
+    "homepage": "http://www.github.com/Maxnuf/MaxnufSmarty/",
+    "authors": [
+        {
+            "name": "Niels Jelsma",
+            "email": "drsdeurknop@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "smarty/smarty" : "dev-trunk"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "MaxnufSmarty": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
+
