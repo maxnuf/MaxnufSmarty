@@ -87,7 +87,7 @@ class PluginHandler
             $params = $args[0];
             $smarty = $args[1];
         } else {
-            $params = $args[0]; 
+            $params = $args; 
         }
         
         $output = call_user_func_array(array($helper, '__invoke'), $params);
