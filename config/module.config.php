@@ -4,8 +4,8 @@ return array(
         'config' => array(
             'caching' => 0,
             'cache_lifetime' => 14400,
-            'compile_dir' => __DIR__ . '/../../../data/Smarty/smarty_compile/',
-            'cache_dir' => __DIR__ . '/../../../data/Smarty/smarty_cache/',
+            'compile_dir' => __DIR__ . '/../../../../data/Smarty/smarty_compile/',
+            'cache_dir' => __DIR__ . '/../../../../data/Smarty/smarty_cache/',
             'left_delimiter' => '{',
             'right_delimiter'=> '}',
         ),
