@@ -101,10 +101,12 @@ class PluginHandler
         // We expect a string as output
         // otherwise an assign variable should be provided
         if (!is_string($output)) {
-            throw new \RuntimeException(sprintf('Expecting string when calling ""%s", but received "%s".',
-                $name, 
-                is_object($output) ? get_class($output) : gettype($output)
-            ));
+        	if(!is_int($output)) {
+	            throw new \RuntimeException(sprintf('Expecting string when calling ""%s", but received "%s".',
+	                $name, 
+	                is_object($output) ? get_class($output) : gettype($output)
+	            ));
+        	}
         }
         return $output;
     }
