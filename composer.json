@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "smarty/smarty" : "dev-trunk"
+        "smarty/smarty" : "v3.1.11"
     },
 
     "autoload": {
