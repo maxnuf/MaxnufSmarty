@@ -39,7 +39,7 @@ class MaxnufSmarty extends Smarty
         if (isset($options['cache_dir'])) {
             $this->setCacheDir($options['cache_dir']);
         }
-        if (isset($options['let_delimiter'])) {
+        if (isset($options['left_delimiter'])) {
             $this->left_delimiter = $options['left_delimiter'];
         }
         if (isset($options['right_delimiter'])) {
