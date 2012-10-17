@@ -12,7 +12,7 @@ MaxnufSmarty is a module that integrates the [Smarty](http://www.smarty.net) tem
 
 configuration can be set via the `maxnufsmarty` configuration key.
 
-   'maxnufsmarty' => array(
+    'maxnufsmarty' => array(
         'config' => array(
             'compile_dir' => __DIR__ . '/../../data/Smarty/smarty_compile/',
             'cache_dir' => __DIR__ . '/../../data/Smarty/smarty_cache/',
@@ -45,6 +45,7 @@ Where appropriate Zend View helpers can be invoked as function or modifiers
 
     {$form->get('title')|formLabel}
     {$form->get('title')|formInput}
+    {url name="blog/view" params=['id'=>$item->id, 'title'=>$item->title]}
 
 Zend View helpers can also be invoked using `$this`
 
