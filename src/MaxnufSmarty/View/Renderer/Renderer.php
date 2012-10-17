@@ -73,6 +73,7 @@ class Renderer extends PhpRenderer
         if (!($file = $this->resolver()->resolve($nameOrModel))) {
         	throw new Exception\RuntimeException(sprintf(
                     '%s: Unable to find template "%s"; resolver could not resolve to a file',
+                    __METHOD__,
                     $nameOrModel
                 ));
         }
