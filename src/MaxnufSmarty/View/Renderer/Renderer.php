@@ -31,6 +31,17 @@ class Renderer extends PhpRenderer
     {
         return $this->engine;
     }
+    
+    /**
+     * Can the template be rendered?
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function canRender($name)
+    {
+        return $this->resolver()->resolve($name, $this);
+    }
 
     /**
      * Processes a view script and returns the output.

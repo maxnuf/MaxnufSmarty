@@ -56,7 +56,10 @@ class Strategy implements ListenerAggregateInterface
 
     public function selectRenderer(ViewEvent $e)
     {
-        return $this->renderer;
+        if ($this->renderer->canRender($e->getModel()->getTemplate())) {
+            return $this->renderer;
+        }
+        return false;
     }
 
     public function injectResponse(ViewEvent $e)
