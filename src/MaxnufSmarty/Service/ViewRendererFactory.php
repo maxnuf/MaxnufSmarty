@@ -14,9 +14,13 @@ class ViewRendererFactory implements FactoryInterface
         $config = $serviceLocator->get('Config');
         $config = $config['maxnufsmarty'];
 
-        $pathResolver = $serviceLocator->get('ViewTemplatePathStack');
-        $pathResolver->setDefaultSuffix($config['suffix']);
+        $zfPathResolver = $serviceLocator->get('ViewTemplatePathStack');
+        $smartyPathResolver = new TemplatePathStack;
+        $smartyPathResolver->setDefaultSuffix($config['suffix']);
+        $smartyPathResolver->setPaths($zfPathResolver->getPaths());
+        
         $resolver = $serviceLocator->get('ViewResolver');
+        $resolver->attach($smartyPathResolver);
 
         $renderer = new Renderer();
         $renderer->setEngine($serviceLocator->get('MaxnufSmarty'));
