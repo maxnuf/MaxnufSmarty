@@ -2,6 +2,7 @@
     "name": "maxnuf/maxnuf-smarty",
     "description": "Zend Framework 2 Module that provides a Smarty rendering strategy and functions and modifiers to render actions from your templates",
     "type": "library",
+    "license": "MIT",
     "keywords": [
         "smarty",
         "module",
