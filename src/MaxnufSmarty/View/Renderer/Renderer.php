@@ -94,9 +94,7 @@ class Renderer extends PhpRenderer
         $smarty->assign('this', $this); // TODO this may change
         $smarty->assign($vars);
         
-        ob_start();
-        $smarty->display($file);
-        $content = ob_get_clean();
+        $content = $smarty->fetch($file);
 
         return $this->getFilterChain()->filter($content);
     }
