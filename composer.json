@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "smarty/smarty" : "v3.1.12"
+        "smarty/smarty" : "v3.1.*"
     },
 
     "autoload": {
