@@ -19,7 +19,7 @@ class Smarty_Maxnuf_Smarty_Template_Compiler extends \Smarty_Internal_SmartyTemp
         if ($wrapper = $this->smarty->getFunctionCompiler()) {
             if (!isset($this->smarty->registered_plugins[Smarty::PLUGIN_COMPILER][$tag])) {
                 if ($tag != 'cycle') {
-                    if ($wrapper->getManager()->has($tag)) {
+                    if ($wrapper->has($tag)) {
                         $this->smarty->registerPlugin(Smarty::PLUGIN_COMPILER, $tag, array($wrapper, $tag));
                     }
                 }
@@ -37,7 +37,7 @@ class Smarty_Maxnuf_Smarty_Template_Compiler extends \Smarty_Internal_SmartyTemp
                     if ($modifier == 'date_format') {
                         continue;
                     }
-                    if ($wrapper->getManager()->has($modifier)) {
+                    if ($modifierWrapper->has($modifier)) {
                         $this->smarty->registerPlugin(Smarty::PLUGIN_MODIFIERCOMPILER, $modifier, array($modifierWrapper, $modifier));
                     }
                 }

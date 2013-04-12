@@ -37,9 +37,6 @@ class SmartyFactory implements FactoryInterface
         $wrapper = new PluginWrapper($manager);
         $smarty->registerObject('zf', $wrapper, array(), false);
         
-        $smarty->registerPlugin(MaxnufSmarty::PLUGIN_MODIFIERCOMPILER, 'openTag', array($modifierCompiler, 'openTag'));
-		$smarty->registerPlugin(MaxnufSmarty::PLUGIN_COMPILER, 'formCloseTag', array('Zend\Form\View\Helper\Form', 'closeTag'));
-		
         return $smarty;
     }
 }
