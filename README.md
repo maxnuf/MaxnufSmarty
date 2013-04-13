@@ -20,7 +20,8 @@ configuration can be set via the `maxnufsmarty` configuration key.
     ),
  
     
-MaxnufSmarty integrates with the View Manager service and uses the same resolvers defined within that service. 
+MaxnufSmarty integrates with the View Manager service and uses the same resolvers defined within that service.
+For the `template_map` it looks for files with suffix defined in config, default is `.tpl`. 
 This allows you to define the template path stacks and maps within the view manager without having to set them again
 when installing the module:
 
@@ -52,3 +53,7 @@ Zend View helpers can also be invoked using `$this`
     {$this->formInput($form->get('title'))}
 
 	{$this->headTitle()->setSeperator(' - ')}
+
+The smarty modifier `cat` can be used to concatenate two variables
+
+	{$this->headLink()->prependStylesheet($this->basePath()|cat:'/mystyle.css')}
