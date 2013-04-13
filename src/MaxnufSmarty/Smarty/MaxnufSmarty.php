@@ -4,17 +4,31 @@ namespace MaxnufSmarty\Smarty;
 
 use Smarty;
 use Zend\View\HelperPluginManager;
+use MaxnufSmarty\Smarty\SysPlugins\MaxnufFileResource;
+use MaxnufSmarty\Compiler\FunctionCompiler;
+use MaxnufSmarty\Compiler\ModifierCompiler;
 
 class MaxnufSmarty extends Smarty
 {
     /**
-     * @var \Zend\View\HelperPluginManager
+     * @var \MaxnufSmarty\Compiler\FunctionCompiler
      */
-    protected $manager;
+    protected $functionCompiler;
+    
+    /**
+     * @var \MaxnufSmarty\Compiler\ModifierCompiler
+     */
+    protected $modifierCompiler;
 
-    public function __construct($options = array())
+    function __construct($options = array(), FunctionCompiler $functionCompiler, ModifierCompiler $modifierCompiler)
     {
+        $this->functionCompiler = $functionCompiler;
+        $this->modifierCompiler = $modifierCompiler;
+        
         parent::__construct();
+        
+        $this->registerResource('maxnufFile', new MaxnufFileResource());
+        $this->default_resource_type = 'maxnufFile';
 
         $this->setOptions($options);
     }
@@ -45,5 +59,15 @@ class MaxnufSmarty extends Smarty
         if (isset($options['right_delimiter'])) {
             $this->right_delimiter = $options['right_delimiter'];
         }
+    }
+
+    public function getFunctionCompiler()
+    {
+        return $this->functionCompiler;
+    }
+        
+    public function getModifierCompiler()
+    {
+        return $this->modifierCompiler;
     }
 }

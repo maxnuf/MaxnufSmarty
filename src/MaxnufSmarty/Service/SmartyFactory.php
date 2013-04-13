@@ -6,6 +6,9 @@ use MaxnufSmarty\Smarty\MaxnufSmarty;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use MaxnufSmarty\Handler\PluginHandler;
+use MaxnufSmarty\Handler\PluginWrapper;
+use MaxnufSmarty\Compiler\FunctionCompiler;
+use MaxnufSmarty\Compiler\ModifierCompiler;
 
 class SmartyFactory implements FactoryInterface
 {
@@ -21,16 +24,17 @@ class SmartyFactory implements FactoryInterface
         $smartyConfig = $config['maxnufsmarty']['config'];
         $manager = $serviceLocator->get('ViewHelperManager');
 
-        $smarty = new MaxnufSmarty($smartyConfig);
+        $functionCompiler = new FunctionCompiler($manager);
+        $modifierCompiler = new ModifierCompiler($manager);
+
+        $smarty = new MaxnufSmarty($smartyConfig, $functionCompiler, $modifierCompiler);
         $smarty->setTemplateDir($config['view_manager']['template_path_stack']);
-
         $smarty->addPluginsDir($plugins);
-
-        $smarty->registerPlugin(MaxnufSmarty::PLUGIN_COMPILER, 'formCloseTag', array('Zend\Form\View\Helper\Form', 'closeTag'));
-
-        $handler = new PluginHandler($manager);
-        $smarty->registerDefaultPluginHandler(array($handler, 'getHelper'));
-
+        $smarty->addPluginsDir(__DIR__ . '/../Smarty/SysPlugins');
+        
+        $wrapper = new PluginWrapper($manager);
+        $smarty->registerObject('zf', $wrapper, array(), false);
+        
         return $smarty;
     }
 }
