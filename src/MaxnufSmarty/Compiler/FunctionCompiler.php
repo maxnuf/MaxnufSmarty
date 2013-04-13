@@ -12,6 +12,11 @@ class FunctionCompiler
         'formCloseTag' => 'formCloseTag',
     );
     
+    // some view helpers have same name as smarty plugins
+    protected $ignoreMethods = array(
+        'cycle' => false,
+    );
+    
     public function __construct(HelperPluginManager $manager)
     {
         $this->manager = $manager;
@@ -21,6 +26,9 @@ class FunctionCompiler
     {
         if (isset($this->callableMethods[$name])) {
             return true;
+        }
+        if (isset($this->ignoreMethods[$name])) {
+            return false;
         }
         return $this->manager->has($name);
     }
