@@ -32,7 +32,9 @@ class Module implements
                 'MaxnufSmarty'  => 'MaxnufSmarty\Service\SmartyFactory',
                 'SmartyViewRenderer' => 'MaxnufSmarty\Service\ViewRendererFactory',
                 'SmartyViewStrategy' => 'MaxnufSmarty\Service\ViewStrategyFactory',
-                'MaxnufSmartyResolver' => 'MaxnufSmarty\Service\MaxnufSmartyResolverFactory',
+                'SmartyViewResolver' => 'MaxnufSmarty\Service\SmartyViewResolverFactory',
+                'SmartyTemplatePathStack' => 'MaxnufSmarty\Service\SmartyTemplatePathStackFactory',
+                'SmartyTemplateMapResolver' => 'MaxnufSmarty\Service\SmartyTemplateMapResolverFactory',
             )
         );
     }

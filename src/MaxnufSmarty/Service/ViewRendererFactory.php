@@ -12,7 +12,7 @@ class ViewRendererFactory implements FactoryInterface
     {
         $renderer = new Renderer(
             $serviceLocator->get('MaxnufSmarty'),
-            $serviceLocator->get('MaxnufSmartyResolver')
+            $serviceLocator->get('SmartyViewResolver')
         );
         $renderer->setHelperPluginManager($serviceLocator->get('ViewHelperManager'));
 
