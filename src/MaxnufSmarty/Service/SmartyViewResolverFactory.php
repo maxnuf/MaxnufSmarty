@@ -10,7 +10,7 @@ class SmartyViewResolverFactory implements FactoryInterface
 {
     /**
      * {@inheritDoc}
-     * 
+     *
      * @return \Zend\View\Resolver\AggregateResolver
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
@@ -18,7 +18,7 @@ class SmartyViewResolverFactory implements FactoryInterface
         $resolver = new AggregateResolver;
         $resolver->attach($serviceLocator->get('SmartyTemplatePathStack'));
         $resolver->attach($serviceLocator->get('SmartyTemplateMapResolver'));
-        
+
         return $resolver;
     }
 }

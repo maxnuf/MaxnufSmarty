@@ -2,7 +2,6 @@
 
 namespace MaxnufSmarty\Service;
 
-use InvalidArgumentException;
 use MaxnufSmarty\Smarty\MaxnufSmarty;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -12,23 +11,23 @@ class SmartyFactory implements FactoryInterface
 {
     /**
      * {@inheritDoc}
-     * 
+     *
      * @return \MaxnufSmarty\Smarty\MaxnufSmarty
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config');
-		$plugins = $config['maxnufsmarty']['plugins'];
+        $plugins = $config['maxnufsmarty']['plugins'];
         $smartyConfig = $config['maxnufsmarty']['config'];
         $manager = $serviceLocator->get('ViewHelperManager');
 
         $smarty = new MaxnufSmarty($smartyConfig);
         $smarty->setTemplateDir($config['view_manager']['template_path_stack']);
-        
+
         $smarty->addPluginsDir($plugins);
-        
-		$smarty->registerPlugin(MaxnufSmarty::PLUGIN_COMPILER, 'formCloseTag', array('Zend\Form\View\Helper\Form', 'closeTag'));
-		
+
+        $smarty->registerPlugin(MaxnufSmarty::PLUGIN_COMPILER, 'formCloseTag', array('Zend\Form\View\Helper\Form', 'closeTag'));
+
         $handler = new PluginHandler($manager);
         $smarty->registerDefaultPluginHandler(array($handler, 'getHelper'));
 

@@ -12,21 +12,21 @@ class MaxnufSmarty extends Smarty
      */
     protected $manager;
 
-    function __construct($options = array())
+    public function __construct($options = array())
     {
         parent::__construct();
 
         $this->setOptions($options);
     }
-    
+
     public function setOptions($options)
     {
-    	if (isset($options['caching'])) {
+        if (isset($options['caching'])) {
             $this->caching = $options['caching'];
-    	}
-    	if (isset($options['cache_lifetime'])) {
+        }
+        if (isset($options['cache_lifetime'])) {
             $this->cache_lifetime = $options['cache_lifetime'];
-    	}
+        }
         if (isset($options['template_dir'])) {
             $this->setTemplateDir($options['template_dir']);
         }

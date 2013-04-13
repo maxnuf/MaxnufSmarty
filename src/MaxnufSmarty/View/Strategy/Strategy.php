@@ -59,6 +59,7 @@ class Strategy implements ListenerAggregateInterface
         if ($this->renderer->canRender($e->getModel()->getTemplate())) {
             return $this->renderer;
         }
+
         return false;
     }
 

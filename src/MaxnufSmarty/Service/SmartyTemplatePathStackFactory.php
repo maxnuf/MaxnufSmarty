@@ -10,14 +10,14 @@ class SmartyTemplatePathStackFactory implements FactoryInterface
 {
     /**
      * {@inheritDoc}
-     * 
+     *
      * @return \Zend\View\Resolver\TemplatePathStack
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config');
         $suffix = $config['maxnufsmarty']['suffix'];
-        
+
         $stack = array();
         if (is_array($config) && isset($config['view_manager'])) {
             $config = $config['view_manager'];
@@ -28,7 +28,7 @@ class SmartyTemplatePathStackFactory implements FactoryInterface
         $templatePathStack = new TemplatePathStack();
         $templatePathStack->setDefaultSuffix($suffix);
         $templatePathStack->addPaths($stack);
-        
+
         return $templatePathStack;
     }
 }

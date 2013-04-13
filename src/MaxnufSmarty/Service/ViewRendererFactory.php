@@ -10,7 +10,7 @@ class ViewRendererFactory implements FactoryInterface
 {
     /**
      * {@inheritDoc}
-     * 
+     *
      * @return \MaxnufSmarty\View\Renderer\Renderer
      */
     public function createService(ServiceLocatorInterface $serviceLocator)

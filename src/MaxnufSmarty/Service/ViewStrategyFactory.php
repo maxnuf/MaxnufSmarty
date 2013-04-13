@@ -10,7 +10,7 @@ class ViewStrategyFactory implements FactoryInterface
 {
     /**
      * {@inheritDoc}
-     * 
+     *
      * @return \MaxnufSmarty\View\Strategy\Strategy
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
