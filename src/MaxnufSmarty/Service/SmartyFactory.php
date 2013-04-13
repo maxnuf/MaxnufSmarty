@@ -10,6 +10,11 @@ use MaxnufSmarty\Handler\PluginHandler;
 
 class SmartyFactory implements FactoryInterface
 {
+    /**
+     * {@inheritDoc}
+     * 
+     * @return \MaxnufSmarty\Smarty\MaxnufSmarty
+     */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $config = $serviceLocator->get('Config');
