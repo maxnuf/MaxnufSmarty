@@ -6,6 +6,7 @@ use Smarty;
 use Zend\View\Exception;
 use Zend\View\Model\ModelInterface;
 use Zend\View\Renderer\PhpRenderer;
+use Zend\View\Resolver\ResolverInterface;
 
 class Renderer extends PhpRenderer
 {
@@ -14,6 +15,13 @@ class Renderer extends PhpRenderer
      */
     protected $engine;
 
+
+    public function __construct(Smarty $engine, ResolverInterface $resolver)
+    {
+        $this->engine = $engine;
+        $this->setResolver($resolver);
+    }
+    
     /**
      * @param \Smarty $engine
      * @return Renderer
