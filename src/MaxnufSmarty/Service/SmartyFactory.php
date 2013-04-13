@@ -3,7 +3,6 @@
 namespace MaxnufSmarty\Service;
 
 use InvalidArgumentException;
-//use ZfcTwig\Twig\Loader\AbsoluteFilesystem;
 use MaxnufSmarty\Smarty\MaxnufSmarty;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -17,10 +16,6 @@ class SmartyFactory implements FactoryInterface
 		$plugins = $config['maxnufsmarty']['plugins'];
         $smartyConfig = $config['maxnufsmarty']['config'];
         $manager = $serviceLocator->get('ViewHelperManager');
-
-//        $loader = new AbsoluteFilesystem();
-//        $resolver = $serviceLocator->get('ViewResolver'); 
-//        $loader->setFallbackResolver($resolver);
 
         $smarty = new MaxnufSmarty($smartyConfig);
         $smarty->setTemplateDir($config['view_manager']['template_path_stack']);
