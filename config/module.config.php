@@ -9,7 +9,7 @@ return array(
             'left_delimiter' => '{',
             'right_delimiter'=> '}',
         ),
-        'suffix' => '.tpl',
+        'suffix' => 'tpl',
         'plugins' => array(
         )
     ),
