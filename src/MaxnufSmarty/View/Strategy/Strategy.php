@@ -6,6 +6,7 @@ use MaxnufSmarty\View\Renderer\Renderer;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\View\ViewEvent;
+use Zend\View\Model\JsonModel;
 
 class Strategy implements ListenerAggregateInterface
 {
@@ -56,7 +57,12 @@ class Strategy implements ListenerAggregateInterface
 
     public function selectRenderer(ViewEvent $e)
     {
-        if ($this->renderer->canRender($e->getModel()->getTemplate())) {
+        $model = $e->getModel();
+        
+        if ($model instanceof JsonModel) {
+            return false;
+        }
+        if ($this->renderer->canRender($model->getTemplate())) {
             return $this->renderer;
         }
 
